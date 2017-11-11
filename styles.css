@@ -9,7 +9,7 @@ body {
 }
 h2 {
   color: white;
-  padding: 50vh 0;
+  padding-top: 50vh;
   text-align: center;
   text-shadow: 3px 3px black;
 }
@@ -19,6 +19,13 @@ h2:hover {
 img {
   height: 300px;
   width: 300px;
+}
+p {
+  color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  text-decoration: line-through;
+  width: 60px;
 }
 .noselect {
   -webkit-touch-callout: none;

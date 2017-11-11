@@ -1,12 +1,26 @@
+var soundOn = false;
+
 function tappyTappy() {
+  var target = event.target.id;
+
+  if (target === 'audioText') { return }
+
   var imageFileCount = 5;
   var soundFileCount = 5;
-  var soundOn = true;
   var image = createImage(imageFileCount);
 
   addImage(image);
   animateImage(image.id, event);
-  meow(soundOn, soundFileCount);
+  meow(soundFileCount);
+}
+
+function toggleSound() {
+  soundOn = !soundOn;
+
+  var audioText = document.getElementById('audioText');
+  var textDecoration = soundOn ? 'none' : 'line-through';
+
+  audioText.style.textDecoration = textDecoration;
 }
 
 function createImage(fileCount) {
@@ -57,7 +71,7 @@ function animateImage(id, event) {
   }
 }
 
-function meow(soundOn, fileCount) {
+function meow(fileCount) {
   if (!soundOn) { return }
   var file = Math.ceil(Math.random() * fileCount);
   var audio = new Audio('./meows/' + file + '.mp3');
