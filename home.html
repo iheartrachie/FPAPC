@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>&#9834; Flying Pink and Purple Cats &#9834;</title>
-
-
-	<style>
-		body { background-image: url("lolspace.jpg"); }
-		h2 {
-			color: white;
-			padding: 50vh 0;
-			text-align: center;
-			text-shadow: 3px 3px black;
-		}
-		.noselect {
-		  -webkit-touch-callout: none; /* iOS Safari */
-		    -webkit-user-select: none; /* Safari */
-		     -khtml-user-select: none; /* Konqueror HTML */
-		       -moz-user-select: none; /* Firefox */
-		        -ms-user-select: none; /* Internet Explorer/Edge */
-		            user-select: none; /* Non-prefixed version, currently
-		                                  supported by Chrome and Opera */
-		}
-	</style>
 
 	<!--
 		|*~*~*~*~*~*~*~*~*~*~*|
@@ -46,13 +24,78 @@
 		-
 		-
 	-->
+
+	<meta charset="utf-8">
+	<title>&#9834; Flying Pink and Purple Cats &#9834;</title>
+
+	<style>
+		body {
+			background-image: url("lolspace.jpg");
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			position: relative;
+			width: 100%;
+		}
+		h2 {
+			color: white;
+			padding: 50vh 0;
+			text-align: center;
+			text-shadow: 3px 3px black;
+		}
+		h2:hover {
+			cursor: pointer;
+		}
+		.noselect {
+		  -webkit-touch-callout: none;
+		    -webkit-user-select: none;
+		     -khtml-user-select: none;
+		       -moz-user-select: none;
+		        -ms-user-select: none;
+		            user-select: none;
+		}
+	</style>
+
 </head>
-<body onclick="tappyTappy()">
+<body onclick="tappyTappy()" id="body">
 	<h2 class="noselect">tappy tappy</h2>
 </body>
 <script>
 	function tappyTappy() {
-		console.log('meow!');
+		addImage();
+	}
+
+	function addImage() {
+		var img = document.createElement('img');
+		var min = 0;
+		var fileCount = 5;
+		var file = Math.ceil(Math.random() * fileCount);
+		var id = Math.ceil(Math.random() * 10000);
+
+		img.setAttribute('id', id);
+		img.style.position = 'absolute';
+		img.src = './cat_pics/' + file + '.jpg';
+
+		var src = document.getElementById('body');
+		src.appendChild(img);
+
+		animateImage(id);
+	}
+
+	function animateImage(id) {
+		var elem = document.getElementById(id);
+    var pos = 0;
+    var id = setInterval(frame, 10);
+
+    function frame() {
+      if (pos == 350) {
+      	clearInterval(id);
+      } else {
+        pos++;
+        elem.style.top = pos + 'px';
+        elem.style.left = pos + 'px';
+      }
+    }
 	}
 </script>
 </html>
