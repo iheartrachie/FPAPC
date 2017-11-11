@@ -1,10 +1,12 @@
 function tappyTappy() {
-  var fileCount = 5;
-  var image = createImage(fileCount);
+  var imageFileCount = 5;
+  var soundFileCount = 5;
+  var soundOn = true;
+  var image = createImage(imageFileCount);
 
   addImage(image);
   animateImage(image.id, event);
-  meow();
+  meow(soundOn, soundFileCount);
 }
 
 function createImage(fileCount) {
@@ -55,8 +57,10 @@ function animateImage(id, event) {
   }
 }
 
-function meow() {
-  console.log('meow');
-  //TODO Add meow sound
-  //TODO Add ability to toggle sound
+function meow(soundOn, fileCount) {
+  if (!soundOn) { return }
+  var file = Math.ceil(Math.random() * fileCount);
+  var audio = new Audio('./meows/' + file + '.mp3');
+
+  audio.play();
 }
