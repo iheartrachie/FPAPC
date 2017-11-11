@@ -15,6 +15,10 @@ h2 {
 h2:hover {
   cursor: pointer;
 }
+img {
+  height: 300px;
+  width: 300px;
+}
 .noselect {
   -webkit-touch-callout: none;
     -webkit-user-select: none;

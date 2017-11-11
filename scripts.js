@@ -1,15 +1,14 @@
 function tappyTappy() {
-  var image = createImage();
+  var fileCount = 5;
+  var image = createImage(fileCount);
 
   addImage(image);
   animateImage(image.id, event);
   meow();
 }
 
-function createImage() {
+function createImage(fileCount) {
   var image = document.createElement('img');
-  var min = 0;
-  var fileCount = 5;
   var file = Math.ceil(Math.random() * fileCount);
   var id = Math.ceil(Math.random() * 10000);
 
@@ -27,22 +26,31 @@ function addImage(image) {
 }
 
 function animateImage(id, event) {
-  var elem = document.getElementById(id);
-  var top = event.clientY;
-  var left = event.clientX;
-  var directionY = Math.round(Math.random() * 10 - 10);
-  var directionX = Math.round(Math.random() * 10 - 10);
-  //TODO: Add offset
-  var id = setInterval(frame, 1);
+  var body = document.getElementById('body');
+  var image = document.getElementById(id);
+  var y = event.clientY - 150;
+  var x = event.clientX - 150;
+  var directionY = Math.round(Math.random() * 20 - 10);
+  var directionX = Math.round(Math.random() * 20 - 10);
+  var outOfBoundsY = false;
+  var outOfBoundsX = false;
+  var id = setInterval(frame, 10);
 
   function frame() {
-    if (top == 3500) {
+    if (outOfBoundsY || outOfBoundsX) {
+      image.remove();
       clearInterval(id);
     } else {
-      top += directionY;
-      left += directionX;
-      elem.style.top = top + 'px';
-      elem.style.left = left + 'px';
+      y += directionY;
+      x += directionX;
+
+      image.style.top = y + 'px';
+      image.style.left = x + 'px';
+
+      var positionInfo = image.getBoundingClientRect();
+
+      outOfBoundsY = positionInfo.bottom < 0 || positionInfo.top > body.clientHeight;
+      outOfBoundsX = positionInfo.right < 0 || positionInfo.left > body.clientWidth;
     }
   }
 }
