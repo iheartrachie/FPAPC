@@ -1,0 +1,25 @@
+body {
+  background-image: url("lolspace.jpg");
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+h2 {
+  color: white;
+  padding: 50vh 0;
+  text-align: center;
+  text-shadow: 3px 3px black;
+}
+h2:hover {
+  cursor: pointer;
+}
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
