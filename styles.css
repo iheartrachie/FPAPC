@@ -1,15 +1,17 @@
-body {
-  background-image: url("lolspace.jpg");
+html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
   padding: 0;
-  position: relative;
   width: 100%;
+}
+body {
+  background-image: url("lolspace.jpg");
+  overflow: hidden;
+  position: relative;
 }
 h2 {
   color: white;
-  padding-top: 50vh;
+  padding-top: 45vh;
   text-align: center;
   text-shadow: 3px 3px black;
 }
@@ -23,9 +25,10 @@ img {
 p {
   color: white;
   cursor: pointer;
+  font-weight: bold;
   margin: 0 auto;
   text-decoration: line-through;
-  width: 60px;
+  width: 65px;
 }
 .noselect {
   -webkit-touch-callout: none;

@@ -30,6 +30,7 @@ function createImage(fileCount) {
 
   image.setAttribute('id', id);
   image.style.position = 'absolute';
+  image.style.display = 'none';
   image.src = './cat_pics/' + file + '.jpg';
 
   return image;
@@ -60,6 +61,7 @@ function animateImage(id, event) {
       y += directionY;
       x += directionX;
 
+      image.style.display = 'block';
       image.style.top = y + 'px';
       image.style.left = x + 'px';
 
