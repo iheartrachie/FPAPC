@@ -7,7 +7,7 @@ html, body {
 body {
   background-image: url("lolspace.jpg");
   overflow: hidden;
-  position: relative;
+  position: fixed;
 }
 h2 {
   color: white;
