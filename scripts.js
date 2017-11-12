@@ -38,13 +38,13 @@ function createImage(fileCount) {
 }
 
 function addImage(image) {
-  var src = document.getElementById('body');
+  var src = document.getElementById('container');
 
   src.appendChild(image);
 }
 
 function animateImage(id, event) {
-  var body = document.getElementById('body');
+  var container = document.getElementById('container');
   var image = document.getElementById(id);
   var y = event.clientY - 150;
   var x = event.clientX - 150;
@@ -68,8 +68,8 @@ function animateImage(id, event) {
 
       var positionInfo = image.getBoundingClientRect();
 
-      outOfBoundsY = positionInfo.bottom < 0 || positionInfo.top > body.clientHeight;
-      outOfBoundsX = positionInfo.right < 0 || positionInfo.left > body.clientWidth;
+      outOfBoundsY = positionInfo.bottom < 0 || positionInfo.top > container.clientHeight;
+      outOfBoundsX = positionInfo.right < 0 || positionInfo.left > container.clientWidth;
     }
   }
 }
