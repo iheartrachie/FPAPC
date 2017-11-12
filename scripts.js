@@ -29,9 +29,10 @@ function createImage(fileCount) {
   var id = Math.ceil(Math.random() * 10000);
 
   image.setAttribute('id', id);
+  image.class = 'noselect';
   image.style.position = 'absolute';
   image.style.display = 'none';
-  image.src = './cat_pics/' + file + '.jpg';
+  image.src = './cat_pics/' + file + '.png';
 
   return image;
 }
