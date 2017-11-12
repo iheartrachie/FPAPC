@@ -1,4 +1,6 @@
 var soundOn = false;
+var quietCats = 0;
+var loudCats = 0;
 
 function tappyTappy() {
   var target = event.target.id;
@@ -9,9 +11,20 @@ function tappyTappy() {
   var soundFileCount = 5;
   var image = createImage(imageFileCount);
 
+  countCat();
   addImage(image);
   animateImage(image.id, event);
   meow(soundFileCount);
+}
+
+function countCat() {
+  if (soundOn) {
+    loudCats++;
+    document.getElementById('loudCount').innerHTML = 'loud cats: ' + loudCats;
+  } else {
+    quietCats++;
+    document.getElementById('quietCount').innerHTML = 'quiet cats: ' + quietCats;
+  }
 }
 
 function toggleSound() {

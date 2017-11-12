@@ -24,9 +24,13 @@ img {
 }
 p {
   color: white;
-  cursor: pointer;
   font-weight: bold;
   margin: 0 auto;
+  width: 100px;
+}
+.audioText {
+  cursor: pointer;
+  padding-bottom: 20px;
   text-decoration: line-through;
   width: 65px;
 }
