@@ -6,6 +6,7 @@ html, body {
 }
 body {
   background-image: url("lolspace.jpg");
+  background-size: cover;
   overflow: hidden;
   position: fixed;
 }
